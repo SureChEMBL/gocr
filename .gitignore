@@ -1,0 +1,6 @@
+config.log
+config.status
+Makefile
+include/config.h
+man/Makefile
+src/Makefile

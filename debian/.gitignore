@@ -1,0 +1,10 @@
+files
+gocr
+gocr.substvars
+libgocr-dev.debhelper.log
+libgocr-dev.substvars
+libgocr-dev/
+libgocr0.debhelper.log
+libgocr0.substvars
+libgocr0/
+tmp/

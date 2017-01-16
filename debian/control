@@ -1,0 +1,27 @@
+Source: gocr
+Priority: optional
+Section: devel
+Maintainer: Yury Zavarin <yzavarin@ebi.ac.uk>
+Build-Depends:
+ debhelper,
+ gcc,
+# libnetpbm10-dev,
+ make
+Standards-Version: 3.8.4
+
+Package: libgocr-dev
+Architecture: any
+Section: libdevel
+Depends:
+ ${misc:Depends},
+ libgocr0 (= ${binary:Version}),
+# libnetpbm10-dev
+Description: API set to write your own OCR engine - development files
+
+Package: libgocr0
+Architecture: any
+Section: libs
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: API set to write your own OCR engine - runtime libs

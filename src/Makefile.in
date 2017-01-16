@@ -71,8 +71,8 @@ DESTDIR=@prefix@
 
 default: all
 
-# all: $(PROGRAM) lib$(PGMASCLIB).a
-all: $(PROGRAM)
+all: $(PROGRAM) libs
+#all: $(PROGRAM)
 
 gocr.o: gocr.h Makefile ../include/version.h
 
@@ -89,14 +89,14 @@ $(PROGRAM): $(LIBOBJS) gocr.o
 	$(CC) -o $@ $(LDFLAGS) gocr.o $(LIBOBJS) $(LIBS)
 	# if test -r $(PROGRAM); then cp $@ ../bin; fi
 
-#libs: lib$(PGMASCLIB).a lib$(PGMASCLIB).@PACKAGE_VERSION@.so
-libs: lib$(PGMASCLIB).a
+libs: lib$(PGMASCLIB).a lib$(PGMASCLIB).@PACKAGE_VERSION@.so
+#libs: lib$(PGMASCLIB).a
 
 #lib$(PGMASCLIB).@PACKAGE_VERSION@.so: $(LIBOBJS)
 #	$(CC) -fPIC -shared -Wl,-h$@ -o $@ $(LIBOBJS)
 lib$(PGMASCLIB).@PACKAGE_VERSION@.so: $(LIBOBJS:%.o=%.c) Makefile
 	# .o must be build with -fPIC too (Aug2010 JS)
-	$(CC) $(CFLAGS) -fPIC -shared -Wl,-h$@ -o $@ $(LIBOBJS:%.o=%.c)
+	$(CC) $(CFLAGS) -fPIC -shared -Wl,-h$@ -o $@ $(LIBOBJS:%.o=%.c) $(LIBS)
 	-rm -f lib$(PGMASCLIB).so  # set new link
 	-ln -s $@ lib$(PGMASCLIB).so
 
@@ -139,4 +139,4 @@ clean:
 proper: clean
 	-rm -f gocr libPgm2asc.*
 	-rm -f gocr
-	
+
