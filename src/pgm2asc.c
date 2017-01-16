@@ -1,6 +1,6 @@
 /*
 This is a Optical-Character-Recognition program
-Copyright (C) 2000-2012  Joerg Schulenburg
+Copyright (C) 2000-2010  Joerg Schulenburg
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -840,7 +840,7 @@ int frame_vector(struct box *box1, int  x,  int  y,
      num_frame_vectors[0]=0 ???
      and store start value
    */
-  if (box1->num_frames >= MaxNumFrames) return -2;
+  if (box1->num_frames > MaxNumFrames) return -2;
   /* index to next (x,y) */
   i2o=i2=( (box1->num_frames==0)?0: 
             box1->num_frame_vectors[ box1->num_frames ] );

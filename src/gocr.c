@@ -1,6 +1,6 @@
 /*
 This is a Optical-Character-Recognition program
-Copyright (C) GPLv2 2000-2013  Joerg Schulenburg
+Copyright (C) 2000-2010  Joerg Schulenburg
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -87,8 +87,7 @@ static void help(void) {
 	  "\tgocr -m 130 -p ./database/ text1.pbm  # extend database\n"
 	  "\tdjpeg -pnm -gray text.jpg | gocr -    # use jpeg-file via pipe\n"
 	  "\n");
-  fprintf(stderr, " webpage: http://jocr.sourceforge.net/ (may out of date)\n");
-  fprintf(stderr, " mirror:  http://www-e.uni-magdeburg.de/jschulen/ocr/\n");
+  fprintf(stderr, " webpage: http://jocr.sourceforge.net/\n");
   exit(0);
 }
 

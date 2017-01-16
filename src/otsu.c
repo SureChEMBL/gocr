@@ -266,9 +266,9 @@ thresholding (unsigned char *image, int rows, int cols,
 
   // Aug10: i=y0+1, why 1 pixel frame? bug if v[y0] > gmax, fixed
   // calculate min/max (twice?)
-  for (i = y0 /*+ 1*/; i < y0 + dy /*- 1*/; i++) {
+  for (i = y0 /*+ 1*/; i < y0 + dy - 1; i++) {
     np = &image[i*cols+x0+1];
-    for (j = x0 /*+ 1*/; j < x0 + dx /*- 1*/; j++) {
+    for (j = x0 /*+ 1*/; j < x0 + dx - 1; j++) {
       if(*np > gmax) gmax=*np;
       if(*np < gmin) gmin=*np;
       np++; /* next pixel */

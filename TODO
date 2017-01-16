@@ -3,13 +3,6 @@ TODO LIST
 Please send good ideas.
 
 Next release (0.5x)
-- compile-test dietlibc, TinyC tcc
-  CC="diet -Os gcc -Wall -s -nostdinc" ./configure
-- statistics foto vs. smoothing, follow neighbour pixels with max gradient
-  to max and min (contrast? distance? number of max/min centers)
-  for better (local) threshold
-- 1/8^2 reduction for fast text array/image/line detection via statistics?
-  (min. 5x7 font + 1pixel space)
 - replace getTextLine-loop(line) by output_text() (libs have to use pipes) 
   simplify cod
 - allow uppercase suffixes .JPG or .jpg

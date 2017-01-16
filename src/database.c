@@ -1,6 +1,6 @@
 /*
 This is a Optical-Character-Recognition program
-Copyright (C) GPLv2 2000-2013 Joerg Schulenburg
+Copyright (C) 2000-2010 Joerg Schulenburg
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -178,13 +178,10 @@ int store_db(struct box *box1, job_t *job) {
   b.p = (unsigned char *) malloc( dx * dy );
   if( !b.p ){
     fprintf( stderr, "\nFATAL: malloc failed, skip store_db" );
-    fclose(f1);
     return 2;
   }
-  if (copybox(box1->p, box1->x0, box1->y0, dx, dy, &b, dx * dy)) {
-    fclose(f1);
+  if (copybox(box1->p, box1->x0, box1->y0, dx, dy, &b, dx * dy))
     return -1;
-  }
                           
   writepbm(s2,&b); /* What is to do on error? */
   free(b.p);

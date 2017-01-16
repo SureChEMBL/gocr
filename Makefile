@@ -21,7 +21,7 @@ INSTALL = /usr/bin/install -c
 CC = gcc
 CFLAGS = -g -O2
 # following DEFs are not used, but I play with it for training
-CPPFLAGS = -Wall -g -fexceptions -DDO_DEBUG=1 
+CPPFLAGS = 
 DEFS = -DHAVE_CONFIG_H
 includedir = ${prefix}/include
 #

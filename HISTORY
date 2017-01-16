@@ -1,10 +1,6 @@
 History: (Changes,ChangeLog)
 
- 0.51 in progress
-   
- 0.50 Sep10-May12,Mar13
-   just release it to avoid questiions to old problems, give a life sign ;)
-   fix 4 parfait problems against 0.48 (thanks to Rich Burridge) 
+ 0.50 in progress
    adding qrcode detection and decoding (no error correction, no skewing)
    spacing slightly improved
    context correction of hex codes (p.e. hex fingerprints)
