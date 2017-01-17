@@ -57,7 +57,7 @@ SHELL=@SHELL@
 DEFS=@DEFS@
 CPPFLAGS=@CPPFLAGS@
 # to see the config.h
-CFLAGS=@CFLAGS@ $(CPPFLAGS) -I../include $(DEFS)
+CFLAGS=@CFLAGS@ $(CPPFLAGS) -fPIC -I../include $(DEFS)
 LDFLAGS=@LDFLAGS@
 LIBS=@LIBS@
 DESTDIR=@prefix@
@@ -89,14 +89,14 @@ $(PROGRAM): $(LIBOBJS) gocr.o
 	$(CC) -o $@ $(LDFLAGS) gocr.o $(LIBOBJS) $(LIBS)
 	# if test -r $(PROGRAM); then cp $@ ../bin; fi
 
-libs: lib$(PGMASCLIB).a lib$(PGMASCLIB).@PACKAGE_VERSION@.so
-#libs: lib$(PGMASCLIB).a
+#libs: lib$(PGMASCLIB).a lib$(PGMASCLIB).@PACKAGE_VERSION@.so
+libs: lib$(PGMASCLIB).a
 
 #lib$(PGMASCLIB).@PACKAGE_VERSION@.so: $(LIBOBJS)
 #	$(CC) -fPIC -shared -Wl,-h$@ -o $@ $(LIBOBJS)
 lib$(PGMASCLIB).@PACKAGE_VERSION@.so: $(LIBOBJS:%.o=%.c) Makefile
 	# .o must be build with -fPIC too (Aug2010 JS)
-	$(CC) $(CFLAGS) -fPIC -shared -Wl,-h$@ -o $@ $(LIBOBJS:%.o=%.c) $(LIBS)
+	$(CC) $(CFLAGS) -shared -Wl,-h$@ -o $@ $(LIBOBJS:%.o=%.c) $(LIBS)
 	-rm -f lib$(PGMASCLIB).so  # set new link
 	-ln -s $@ lib$(PGMASCLIB).so
 

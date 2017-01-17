@@ -1,12 +1,9 @@
 #!/usr/bin/make -f
 
 DESTDIR = $(CURDIR)/debian/tmp/usr
-LIBDIR = $(DESTDIR)/lib/x86_64-linux-gnu
 
 override_dh_auto_install:
 	$(MAKE) install DESTDIR=$(DESTDIR)
-	rm -f $(LIBDIR)/libPgm2asc.so
-	cp -d  src/libPgm2asc.so $(LIBDIR)
 
 %:
 	dh $@
